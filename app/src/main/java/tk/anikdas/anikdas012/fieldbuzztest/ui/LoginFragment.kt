@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import tk.anikdas.anikdas012.fieldbuzztest.R
 import tk.anikdas.anikdas012.fieldbuzztest.databinding.FragmentLoginBinding
+import tk.anikdas.anikdas012.fieldbuzztest.viewmodel.LoginViewModel
 
 /**
  * Created by "Anik Das" on 19-Dec-2020
@@ -16,6 +18,7 @@ import tk.anikdas.anikdas012.fieldbuzztest.databinding.FragmentLoginBinding
 class LoginFragment: Fragment() {
 
     lateinit var binding: FragmentLoginBinding
+    lateinit var viewModel: LoginViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,5 +28,9 @@ class LoginFragment: Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentLoginBinding.inflate(inflater)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
     }
 }
