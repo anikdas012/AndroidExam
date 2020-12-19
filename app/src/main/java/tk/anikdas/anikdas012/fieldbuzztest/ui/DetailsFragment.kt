@@ -18,6 +18,7 @@ class DetailsFragment: Fragment() {
 
     lateinit var binding: FragmentDetailsBinding
     lateinit var viewModel: DetailsViewModel
+    lateinit var token: String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,6 +27,7 @@ class DetailsFragment: Fragment() {
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentDetailsBinding.inflate(inflater)
+        token = arguments!!.getString("token").toString()
         return binding.root
     }
 
