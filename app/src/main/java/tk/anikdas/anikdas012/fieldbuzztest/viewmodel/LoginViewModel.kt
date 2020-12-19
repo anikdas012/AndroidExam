@@ -1,5 +1,6 @@
 package tk.anikdas.anikdas012.fieldbuzztest.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 
 /**
@@ -8,4 +9,8 @@ import androidx.lifecycle.ViewModel
  */
 
 class LoginViewModel: ViewModel() {
+
+    fun attemptLogin(username: String, password: String) : LiveData<String> {
+
+    }
 }
