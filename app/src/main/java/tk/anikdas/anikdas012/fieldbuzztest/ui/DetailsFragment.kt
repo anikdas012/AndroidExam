@@ -39,4 +39,8 @@ class DetailsFragment: Fragment() {
             validateInputs()
         }
     }
+
+    private fun validateInputs() {
+        
+    }
 }
