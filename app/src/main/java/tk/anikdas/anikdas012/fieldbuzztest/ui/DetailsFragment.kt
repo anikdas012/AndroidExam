@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import tk.anikdas.anikdas012.fieldbuzztest.databinding.FragmentDetailsBinding
+import tk.anikdas.anikdas012.fieldbuzztest.viewmodel.DetailsViewModel
 
 /**
  * Created by "Anik Das" on 20-Dec-2020
@@ -15,6 +17,7 @@ import tk.anikdas.anikdas012.fieldbuzztest.databinding.FragmentDetailsBinding
 class DetailsFragment: Fragment() {
 
     lateinit var binding: FragmentDetailsBinding
+    lateinit var viewModel: DetailsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,5 +27,9 @@ class DetailsFragment: Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentDetailsBinding.inflate(inflater)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        viewModel = ViewModelProvider(this)[DetailsViewModel::class.java]
     }
 }
