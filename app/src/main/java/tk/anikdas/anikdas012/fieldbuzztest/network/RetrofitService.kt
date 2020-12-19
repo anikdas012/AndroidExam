@@ -33,5 +33,7 @@ class RetrofitService {
             }
             return retrofit!!
         }
+
+        fun getLoginApi() = getRetrofitInstance().create(LoginApi::class.java)
     }
 }
