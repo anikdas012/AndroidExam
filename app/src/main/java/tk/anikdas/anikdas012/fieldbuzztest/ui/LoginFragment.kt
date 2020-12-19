@@ -32,5 +32,12 @@ class LoginFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+        binding.login.setOnClickListener {
+            attemptLogin()
+        }
+    }
+
+    private fun attemptLogin() {
+        
     }
 }
