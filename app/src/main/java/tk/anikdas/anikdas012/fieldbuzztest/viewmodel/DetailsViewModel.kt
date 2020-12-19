@@ -8,4 +8,10 @@ import androidx.lifecycle.ViewModel
  */
 
 class DetailsViewModel: ViewModel() {
+
+    private lateinit var token: String
+
+    fun setToken(token: String) {
+        this.token = token
+    }
 }
