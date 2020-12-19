@@ -38,6 +38,8 @@ class LoginFragment: Fragment() {
     }
 
     private fun attemptLogin() {
+        viewModel.attemptLogin(binding.username.editText!!.text.toString(), binding.password.editText!!.text.toString())
+            .removeObservers(viewLifecycleOwner)
         
     }
 }
