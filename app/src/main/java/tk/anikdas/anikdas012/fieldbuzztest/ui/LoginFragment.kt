@@ -50,7 +50,9 @@ class LoginFragment: Fragment() {
                     val detailsFragment = DetailsFragment()
                     detailsFragment.arguments = arguments
 
-                    
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.place_holder, detailsFragment, "Details_Fragment")
+                        .commit()
                 } else {
                     Toast.makeText(this.context, "Login error", Toast.LENGTH_LONG).show()
                 }
