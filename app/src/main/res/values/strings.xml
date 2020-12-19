@@ -3,4 +3,22 @@
     <string name="uesrname_hint">User name</string>
     <string name="password_hint">Password</string>
     <string name="login_hint">Login</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="university">University</string>
+    <string name="graduation_year">Graduation Year</string>
+    <string name="cgpa">CGPA</string>
+    <string name="experience_in_months">Experience in months</string>
+    <string name="current_work_place_name">Current Work Place Name</string>
+    <string name="applying_in">Applying in</string>
+    <string name="android">Android</string>
+    <string name="backend">Backend</string>
+    <string name="expected_salary">Expected salary</string>
+    <string name="fieldbuzz_reference">Fieldbuzz reference</string>
+    <string name="github_project_url">Github project url</string>
+    <string name="select_cv">Select CV</string>
+    <string name="select">Select</string>
+    <string name="upload">Upload</string>
 </resources>
