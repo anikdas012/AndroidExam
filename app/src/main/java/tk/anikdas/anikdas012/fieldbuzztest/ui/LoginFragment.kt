@@ -48,7 +48,7 @@ class LoginFragment: Fragment() {
                     argument.putString("token", token)
 
                     val detailsFragment = DetailsFragment()
-                    detailsFragment.arguments = arguments
+                    detailsFragment.arguments = argument
 
                     parentFragmentManager.beginTransaction()
                         .replace(R.id.place_holder, detailsFragment, "Details_Fragment")
