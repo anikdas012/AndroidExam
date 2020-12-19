@@ -44,6 +44,12 @@ class LoginFragment: Fragment() {
         viewModel.attemptLogin(binding.username.editText!!.text.toString(), binding.password.editText!!.text.toString())
             .observe(viewLifecycleOwner) { token ->
                 if (token != "Error") {
+                    val argument = Bundle()
+                    argument.putString("token", token)
+
+                    val detailsFragment = DetailsFragment()
+                    detailsFragment.arguments = arguments
+
                     
                 } else {
                     Toast.makeText(this.context, "Login error", Toast.LENGTH_LONG).show()
