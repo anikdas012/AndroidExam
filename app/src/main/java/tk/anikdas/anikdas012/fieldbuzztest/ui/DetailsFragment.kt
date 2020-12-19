@@ -34,5 +34,9 @@ class DetailsFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel = ViewModelProvider(this)[DetailsViewModel::class.java]
         viewModel.setToken(token)
+
+        binding.upload.setOnClickListener {
+            validateInputs()
+        }
     }
 }
