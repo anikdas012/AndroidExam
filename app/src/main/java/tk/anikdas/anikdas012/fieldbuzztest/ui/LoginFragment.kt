@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import tk.anikdas.anikdas012.fieldbuzztest.R
@@ -40,6 +41,13 @@ class LoginFragment: Fragment() {
     private fun attemptLogin() {
         viewModel.attemptLogin(binding.username.editText!!.text.toString(), binding.password.editText!!.text.toString())
             .removeObservers(viewLifecycleOwner)
-        
+        viewModel.attemptLogin(binding.username.editText!!.text.toString(), binding.password.editText!!.text.toString())
+            .observe(viewLifecycleOwner) { token ->
+                if (token != "Error") {
+                    
+                } else {
+                    Toast.makeText(this.context, "Login error", Toast.LENGTH_LONG).show()
+                }
+            }
     }
 }
