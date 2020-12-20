@@ -40,8 +40,6 @@ class LoginFragment: Fragment() {
 
     private fun attemptLogin() {
         viewModel.attemptLogin(binding.username.editText!!.text.toString(), binding.password.editText!!.text.toString())
-            .removeObservers(viewLifecycleOwner)
-        viewModel.attemptLogin(binding.username.editText!!.text.toString(), binding.password.editText!!.text.toString())
             .observe(viewLifecycleOwner) { token ->
                 if (token != "Error") {
                     val argument = Bundle()
