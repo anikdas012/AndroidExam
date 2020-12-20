@@ -120,5 +120,51 @@ class DetailsFragment: Fragment() {
             Toast.makeText(this.context, "Github URL is required", Toast.LENGTH_LONG).show()
             return
         }
+
+        uploadInput()
+    }
+
+    private fun uploadInput() {
+        val postionId = binding.radioGroup.checkedRadioButtonId
+        val position = binding.root.findViewById<RadioButton>(postionId).text.toString()
+
+        val cvFile = CV(UUID.randomUUID().toString())
+        var address: String? = if (binding.address.editText!!.text.isNullOrEmpty()){
+            null
+        } else {
+            binding.address.editText!!.text.toString()
+        }
+        var cgpa: Double? = if (binding.cgpa.editText!!.text.isNullOrEmpty()){
+            null
+        } else {
+            binding.cgpa.editText!!.text.toString().toDouble()
+        }
+        var experience: Int? = if (binding.experience.editText!!.text.isNullOrEmpty()){
+            null
+        } else {
+            binding.experience.editText!!.text.toString().toInt()
+        }
+        var workPlace: String? = if (binding.work.editText!!.text.isNullOrEmpty()){
+            null
+        } else {
+            binding.work.editText!!.text.toString()
+        }
+        var reference: String? = if (binding.reference.editText!!.text.isNullOrEmpty()){
+            null
+        } else {
+            binding.reference.editText!!.text.toString()
+        }
+
+        val userDetails = UserDetails(UUID.randomUUID().toString(),
+        binding.name.editText!!.text.toString(), binding.email.editText!!.text.toString(),
+        binding.phone.editText!!.text.toString(), address, binding.varsity.editText!!.text.toString(),
+        binding.year.editText!!.text.toString().toInt(), cgpa, experience, workPlace,
+        position, binding.salary.editText!!.text.toString().toInt(), reference,
+        binding.url.editText!!.text.toString(), cvFile,
+        Calendar.getInstance().time.time, Calendar.getInstance().time.time)
+
+        viewModel.uploadDetails(userDetails).observe(viewLifecycleOwner) {
+            Toast.makeText(this.context, it, Toast.LENGTH_LONG).show()
+        }
     }
 }
