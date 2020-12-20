@@ -21,6 +21,6 @@ data class UserDetails(
     val field_buzz_reference: String?,
     val github_project_url: String,
     val cv_file: CV,
-    val on_spot_update_time: Int,
-    val on_spot_creation_time: Int
+    val on_spot_update_time: Long,
+    val on_spot_creation_time: Long
 )
