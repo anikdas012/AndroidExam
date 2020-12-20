@@ -37,5 +37,7 @@ class RetrofitService {
         fun getLoginApi() = getRetrofitInstance().create(LoginApi::class.java)
 
         fun getDetailsApi() = getRetrofitInstance().create(DetailsApi::class.java)
+
+        fun getCVApi() = getRetrofitInstance().create(CVApi::class.java)
     }
 }
