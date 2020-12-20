@@ -7,12 +7,16 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import tk.anikdas.anikdas012.fieldbuzztest.databinding.FragmentDetailsBinding
+import tk.anikdas.anikdas012.fieldbuzztest.models.CV
+import tk.anikdas.anikdas012.fieldbuzztest.models.UserDetails
 import tk.anikdas.anikdas012.fieldbuzztest.viewmodel.DetailsViewModel
 import java.io.File
+import java.util.*
 
 /**
  * Created by "Anik Das" on 20-Dec-2020
@@ -69,8 +73,7 @@ class DetailsFragment: Fragment() {
             return
         }
 
-        if (binding.email.editText!!.text.isNullOrEmpty()
-                && Patterns.EMAIL_ADDRESS.matcher(binding.email.editText!!.text).matches()) {
+        if (binding.email.editText!!.text.isNullOrEmpty()) {
             Toast.makeText(this.context, "Proper email is required", Toast.LENGTH_LONG).show()
             return
         }
@@ -92,12 +95,12 @@ class DetailsFragment: Fragment() {
             return
         }
 
-        if (binding.cgpa.editText!!.text.toString().toDouble() !in 2.0..4.0) {
+        if (!binding.cgpa.editText!!.text.isNullOrEmpty() && binding.cgpa.editText!!.text.toString().toDouble() !in 2.0..4.0) {
             Toast.makeText(this.context, "CGPA should be between 2.0 and 4.0", Toast.LENGTH_LONG).show()
             return
         }
 
-        if (binding.experience.editText!!.text.toString().toInt() !in 0..100) {
+        if (!binding.experience.editText!!.text.isNullOrEmpty() && binding.experience.editText!!.text.toString().toInt() !in 0..100) {
             Toast.makeText(this.context, "Experience should be between 0 and 100 months", Toast.LENGTH_LONG).show()
             return
         }
@@ -108,7 +111,7 @@ class DetailsFragment: Fragment() {
         }
 
         if (binding.salary.editText!!.text.isNullOrEmpty()
-            && (binding.salary.editText!!.text.toString().toInt() !in 15000..60000)) {
+            || (binding.salary.editText!!.text.toString().toInt() !in 15000..60000)) {
             Toast.makeText(this.context, "Salary should be between 150000 and 60000", Toast.LENGTH_LONG).show()
             return
         }
