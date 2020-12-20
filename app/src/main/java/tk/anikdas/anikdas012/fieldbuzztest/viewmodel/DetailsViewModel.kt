@@ -1,5 +1,6 @@
 package tk.anikdas.anikdas012.fieldbuzztest.viewmodel
 
+import android.net.Uri
 import androidx.lifecycle.ViewModel
 
 /**
@@ -10,8 +11,13 @@ import androidx.lifecycle.ViewModel
 class DetailsViewModel: ViewModel() {
 
     private lateinit var token: String
+    private lateinit var cvUri: Uri
 
     fun setToken(token: String) {
         this.token = token
+    }
+
+    fun setCvUri(cvUri: Uri) {
+        this.cvUri = cvUri
     }
 }
