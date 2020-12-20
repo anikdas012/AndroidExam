@@ -1,5 +1,7 @@
 package tk.anikdas.anikdas012.fieldbuzztest.ui
 
+import android.app.Activity.RESULT_OK
+import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.view.LayoutInflater
@@ -10,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import tk.anikdas.anikdas012.fieldbuzztest.databinding.FragmentDetailsBinding
 import tk.anikdas.anikdas012.fieldbuzztest.viewmodel.DetailsViewModel
+import java.io.File
 
 /**
  * Created by "Anik Das" on 20-Dec-2020
@@ -39,6 +42,23 @@ class DetailsFragment: Fragment() {
 
         binding.upload.setOnClickListener {
             validateInputs()
+        }
+
+        binding.cvSelect.setOnClickListener {
+            val fileIntent = Intent(Intent.ACTION_GET_CONTENT)
+            fileIntent.type = "application/pdf"
+            fileIntent.addCategory(Intent.CATEGORY_OPENABLE)
+            startActivityForResult(fileIntent, 101)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == 101 && resultCode == RESULT_OK) {
+            if (context!!.contentResolver.getType(data!!.data!!) != "application/pdf") {
+                Toast.makeText(this.context, "Select .pdf file", Toast.LENGTH_LONG).show()
+                return
+            }
+            viewModel.setCvUri(data.data!!)
         }
     }
 
