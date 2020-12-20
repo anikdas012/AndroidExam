@@ -2,6 +2,7 @@ package tk.anikdas.anikdas012.fieldbuzztest.network
 
 import io.reactivex.Flowable
 import retrofit2.http.Body
+import retrofit2.http.Header
 import retrofit2.http.POST
 import tk.anikdas.anikdas012.fieldbuzztest.models.User
 import tk.anikdas.anikdas012.fieldbuzztest.models.UserAuthenticate
@@ -16,5 +17,5 @@ import tk.anikdas.anikdas012.fieldbuzztest.models.UserDetailsResponse
 interface DetailsApi {
 
     @POST("v0/recruiting-entities/")
-    fun uploadDetails(@Body userDetails: UserDetails): Flowable<UserDetailsResponse>
+    fun uploadDetails(@Header("Authorization") auth: String, @Body userDetails: UserDetails): Flowable<UserDetailsResponse>
 }
