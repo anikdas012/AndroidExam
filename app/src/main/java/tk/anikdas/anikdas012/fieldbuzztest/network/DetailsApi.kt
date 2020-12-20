@@ -16,5 +16,5 @@ import tk.anikdas.anikdas012.fieldbuzztest.models.UserDetailsResponse
 interface DetailsApi {
 
     @POST("v0/recruiting-entities/")
-    fun login(@Body userDetails: UserDetails): Flowable<UserDetailsResponse>
+    fun uploadDetails(@Body userDetails: UserDetails): Flowable<UserDetailsResponse>
 }
